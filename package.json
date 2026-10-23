@@ -1,0 +1,14 @@
+{
+  "name": "accept-crypto-payments",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "bip32": "^5.0.1",
+    "bitcoinjs-lib": "^7.0.4",
+    "bs58check": "^4.0.0",
+    "tiny-secp256k1": "^2.2.4"
+  }
+}
