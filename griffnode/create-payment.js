@@ -5,9 +5,13 @@ const res = await fetch('https://api.griffnode.com/v1/transactions/create', {
   headers: {
     Authorization: `Bearer ${process.env.GRIFFNODE_API_KEY}`,
     'Content-Type': 'application/json',
-    'X-Idempotency-Key': `order-${orderId}`, // a retried request returns the same payment, never a second one
+    // a retry with the same key returns the same payment, never a second one
+    'X-Idempotency-Key': `order-${orderId}`,
   },
-  body: JSON.stringify({ crypto: 'BTC', amount: Number(amount), currency_fiat: 'USD', metadata: { order_id: orderId } }),
+  body: JSON.stringify({
+    crypto: 'BTC', amount: Number(amount), currency_fiat: 'USD',
+    metadata: { order_id: orderId },
+  }),
 });
 
 const body = await res.json();

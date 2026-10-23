@@ -25,8 +25,8 @@ wallet settings and it appears.
 ## Part 2: the hosted version (GriffNode)
 
 ```
-node --env-file=.env griffnode/webhook-server.js             # listens on :3000
-cloudflared tunnel --url http://localhost:3000               # public URL → set it as your webhook URL
+node --env-file=.env griffnode/webhook-server.js             # listens on :3033
+cloudflared tunnel --url http://localhost:3033               # public URL → set it as your webhook URL
 node --env-file=.env griffnode/create-payment.js 42 5        # order 42, $5 → prints the payment link
 ```
 
